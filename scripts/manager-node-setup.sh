@@ -33,6 +33,7 @@ docker stack deploy -c stack.yml mywp
 # -- grow the swarm
 
 # docker service scale mywp_wordpress=3
+# docker service scale my_wp=3
 
 # docker stack ls
 # docker stack rm mywp
@@ -41,3 +42,7 @@ docker stack deploy -c stack.yml mywp
 
 # -- configure wordpress service in its own node
 # docker volumes ls
+
+# ex.
+# ab -n 100 -c 10 http://192.168.99.117:8000/wp-login.php
+# ab -g results.csv -n 100 -c 20 http://192.168.99.112:8000/wp-admin/install.php
